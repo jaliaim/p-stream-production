@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>P-Stream Notifications</title>
+    <link>https://pstream.mov</link>
+    <description>Site updates and important notifications for P-Stream users</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 28 Jul 2025 21:53:00 GMT</lastBuildDate>
+    <atom:link href="https://pstream.mov/notifications.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <guid>notification-041</guid>
+      <title>Firefox Extension is back in the store!</title>
+      <description>The Firefox extension is back in the store! You can now update it to the latest version.
+
+You’ll need to REPLACE the old one with this one to get future updates. But the old one will also work fine, it’ll just have a warning. HAVING BOTH BREAKS THE SITE, so pick one!
+
+Sorry again!
+(link below)
+      </description>
+      <link>https://addons.mozilla.org/addon/pstream-extension/</link>
+      <pubDate>Wed, 10 Sep 2025 13:00:00 MST</pubDate>
+      <category>announcement</category>
+    </item>
+
+    <item>
+      <guid>notification-040</guid>
+      <title>Extension issue for Firefox!</title>
+      <description>If you're using Firefox with the P-Stream extension, you may have noticed that it says updates are unavailable and that the extension is violating policies. Yikes!
+
+Heres what happened: I accidently deleted my Firefox account that had the P-Stream extension. 
+The extension did NOT violate any policies, it was just deleted. For some it says that when it gets removed.
+
+I just created a new account and re-submitted it, so it should be back in the store soon. I'll post here when it is.
+Just to clarify, the extension is still working perfectly fine, it's just the updates that are not working. When the extension is back in the store, you can update it to the latest version.
+
+The whole story behind me accidentally deleting my Firefox account is on our Discord server, feel free to ask there! (link below)
+
+I apologize for the inconvenience!</description>
+      <link>https://discord.gg/7z6znYgrTG</link>
+      <pubDate>Mon, 08 Sep 2025 16:00:00 MST</pubDate>
+      <category>announcement</category>
+    </item>
+
+    <item>
+      <guid>notification-039</guid>
+      <title>Help support P-Stream!</title>
+      <description>If you enjoy P-Stream, please consider donating to help maintain it!
+
+We're looking at a new server, but we need your help! If a couple people could chip in and cover the $20 (per month) that would be much appreciated. There is only one ad on the site, and we want to keep it that way!
+
+It will improve uptime for FED API and faster EU streams, another proxy which we desperately need.
+
+If you are interested in donating, please check the link below!
+      </description>
+      <link>https://rentry.co/h5mypdfs</link>
+      <pubDate>Sat, 06 Sep 2025 14:42:00 MST</pubDate>
+      <category>announcement</category>
+    </item>
+
+    <item>
+      <guid>notification-038</guid>
+      <title>New subtitle source badges!</title>
+      <description>There's now a quick way to see the source of a subtitle on the external subtitle selection menu!
+
+In addition to the new badges, there's now a new subtitle source: Febbox! Thanks to Nemo for helping P-Stream fetch subtitles from Febbox without needing to set up the Febbox token! It also allows for the subtitles to be used on any source!
+      </description>
+      <pubDate>Tue, 26 Aug 2025 21:50:00 MST</pubDate>
+      <category>feature</category>
+    </item>
+
+    <item>
+      <guid>notification-037</guid>
+      <title>P-Stream v5.1.1 released!</title>
+      <description>Minor updates to fix bugs and add some QoL features.
+
+- Now anyone can watch trailers on the details modal! A custom proxy or the extension no longer required. (Other IMDb info still requires the extension or proxy)
+- Added a resume watching page.
+- Added checks and label to see what embed a source is currently on. (e.x. fox for xprime)
+- Updated curated movie lists and editor picks!
+- Added an onboarding reminder for content that is not found but there are other sources that may have it.
+- Using a custom subtitle source with no baked in ads.
+- Fixed a broken URL issue caused by the Dood source.
+- Fixed 2x boost overlay sizing.
+- Fixed speed boost not working on mobile.
+- Other bug fixes!
+
+P.S. I wanted to highlight TrinityHades, a community member, who is working on adding Safari support to the P-Stream extension! It's not quire ready yet but soon mac users will be able to use the extension to watch P-Stream on Safari!
+      </description>
+      <pubDate>Sun, 24 Aug 2025 22:37:00 MST</pubDate>
+      <category>update</category>
+    </item>
+
+    <item>
+      <guid>notification-036</guid>
+      <title>Some sources are currently down</title>
+      <description>Some sources are currently down. We are aware of the issue and are working to resolve it. 
+Unfortunatly, many sources needed to be disabled due to them showing NSFW content and xprime is experiencing a temporary outage.
+
+I recommend you set up the febbox token to get access to FED API and CIA API, the best sources at the moment. You can find the febbox token setting at the botton of the settings page!
+
+If you are interested in adding a new source to P-Stream, I recently created a new guide for it! Check the link below.</description>
+      <link>https://providers.pstream.mov/in-depth/development</link>
+      <pubDate>Sat, 16 Aug 2025 11:12:00 MST</pubDate>
+      <category>announcement</category>
+    </item>
+
+    <item>
+      <guid>notification-033</guid>
+      <title>Clarifying current source issues</title>
+      <description>I wanted to appologize for some recent issues with FED API and Vidify. 
+Firstly, I wanted to note that P-Stream does not host or control any of the content. Everything is streamed from third party sources.
+
+Vidify:
+You may have noticed (hopefully not) that Vidify has been showing some NSFW content. This is due to protections they have to prevent us from using them as a source.
+This should now be resolved, and hopefully prevented in the future.
+
+
+FED API:
+We’re aware of the issues with FED API and are looking into it. However, the problem is with febbox, not the FED API scraper.
+Once FED API gets the link from febbox it’s entirely out of our control. There’s not much we can do, but maybe there’s something we can find to answer why this is happening and hopefully prevent it.
+Please be patient. I suggest using another source, or use the “open in” download option to stream the febbox mp4 within the player of your choice! 
+      </description>
+      <pubDate>Sat, 09 Aug 2025 8:10:00 MST</pubDate>
+      <category>announcement</category>
+    </item>
+
+
+    <item>
+      <guid>notification-032</guid>
+      <title>Bug fixes and source updates!</title>
+      <description>
+- Fixed speed boost not working on mobile! You should now be able to hold the screen to 2x the video!
+
+I also briefly broke the site for a few minutes, sorry about that!
+
+Source updates:
+- Added Flicky (thanks lew!)
+- Fixed VidSrcCx (thanks mapler!)
+- Disabled SpeedStrm
+
+If you are interested in adding a new source to P-Stream, I recently created a new guide for it! Check the link below.</description>
+<link>https://providers.pstream.mov/in-depth/development</link>
+      <pubDate>Tue, 05 Aug 2025 10:55:00 MST</pubDate>
+      <category>bugfix</category>
+    </item>
+
+
+    <item>
+      <guid>notification-30</guid>
+      <title>Digital Privacy Survey</title>
+      <description>I am conducting a survey to understand how people use privacy features in their daily lives and how it affects them mentally.
+
+If you have a few minutes, please take the survey linked below!
+      </description>
+      <link>https://forms.gle/7ysDeDR2sZsQJu436</link>
+      <pubDate>Mon, 04 Aug 2025 16:30:00 MST</pubDate>
+      <category>announcement</category>
+    </item>
+
+    <item>
+      <guid>notification-8-4-25</guid>
+      <title>P-Stream v5.1.0 released!</title>
+      <link>https://pstream.mov/</link>
+      <description>A bigger one this time. Tons of new quality-of-life features and changes!
+
+In no particular order:
+- As you may have noticed, there is a new notifications menu for viewing updates and news on the site! Works through RSS, so you can add movie release dates! Check out the settings page to add custom feeds!
+- Added bookmark groups. Open the details modal to add any item to a group, even multiple! Sort your groups by tapping the pencil icon on the home page!
+- Added a dedicated bookmarks page. Useful when you have many bookmarks, enabling Carousel view allows them to be limited to 20 items, just like the Discover carousels.
+- You can now hold space or hold the screen to 2x the video!
+- Numerous updates to the details modal. A new mark the whole season as watched button and general design updates.
+- Updated the featured carousel to have smoother transitions and show trending movies if you enable it on the homepage. (instead of editor picks)
+- Improved corrupt UTF-8 subtitle handling.
+- Added example Febbox token modal.
+- Fixed an issue that prevented logging in with a custom passphrase.
+- Minor design improvements all over the site.
+- LOTTTSSS of under-the-hood changes and improvements! Sources will now load a LOT faster.
+- Countless bugfixes!
+
+Thanks to everyone who has been testing the beta and providing feedback!</description>
+      <pubDate>Sun, 03 Aug 2025 16:00:00 MST</pubDate>
+      <category>update</category>
+    </item>
+
+    <item>
+      <guid>notification-028</guid>
+      <title>P-Stream v5.0.4 released!</title>
+      <description>A bunch more quality-of-life improvements and fixes have been released.
+- Accounts are no longer required for migration downloads and uploads.
+- Right-click to open the details modal has been re-added.
+- Increased hold-to-edit time for media cards.
+- Re-added jiggle physics while editing.
+- Custom passphrase support.
+- Improved subtitle selection experience.
+- Bug fixes and behind-the-scenes changes.
+
+A few new sources have also been added, including Flixer and VidSrc.vip.</description>
+      <pubDate>Tue, 15 Jul 2025 20:58:00 GMT</pubDate>
+      <category>update</category>
+    </item>
+
+    <item>
+      <guid>notification-026</guid>
+      <title>New Domain: pstream.mov</title>
+      <link>https://pstream.mov</link>
+      <description>The new domain is https://pstream.mov/
+
+Most pages should now be working. If you had an account on the old site, your data will be there. If you did not have an account, you can download your data from pstream.org and upload it to the new site.</description>
+      <pubDate>Mon, 14 Jul 2025 17:30:00 GMT</pubDate>
+      <category>announcement</category>
+    </item>
+
+    <item>
+      <guid>notification-022</guid>
+      <title>P-Stream v5.0.2 released!</title>
+      <description>This is another minor update with great quality-of-life features.
+- Added "open in..." button to the download menu.
+- Added the ability to set a custom playback speed.
+- Added buttons to mark episodes as watched or unwatched.
+- Added custom color pickers to account styles and more user icons.
+- Estimate quality for non-standard resolution sources.
+- Re-added email to the DMCA page.
+- Added an autoplay toggle to playback settings.
+- Fixed end time to account for playback speed.
+- Updated some translations and fixed many bugs.</description>
+      <pubDate>Mon, 07 Jul 2025 19:55:00 GMT</pubDate>
+      <category>update</category>
+    </item>
+
+    <item>
+      <guid>notification-008</guid>
+      <title>P-Stream v5.0.1</title>
+      <description>Some minor updates this time:
+- Added network images to the details modal.
+- Added a letterboxd/trakt list page: "Discover All Lists."
+- Fixed audio description not displaying.
+- Automatically open the settings menu when failing to play.
+- Added a compact episodes view.
+- Updated the "About" page.
+- Added low-performance/bandwidth mode.
+- The share button on the details modal now opens the iOS share sheet.
+- Fixed various bugs.</description>
+      <pubDate>Tue, 24 Jun 2025 18:20:00 GMT</pubDate>
+      <category>update</category>
+    </item>
+
+    <item>
+      <guid>notification-003-2</guid>
+      <title>New Movie Lists Page</title>
+      <link>https://pstream.mov/discover/all</link>
+      <description>A new page has been added to discover many movie lists powered by Letterboxd. A couple of minor bugs were also fixed.</description>
+      <pubDate>Sat, 07 Jun 2025 18:41:00 GMT</pubDate>
+      <category>update</category>
+    </item>
+
+    <item>
+      <guid>notification-005-2</guid>
+      <title>5.0.0 Released!</title>
+      <description>This release is the largest facelift to the project yet, with many new features and fixes.
+
+New Features
+- Discover Page Overhaul: The Discover page has been completely rewritten.
+- New Trakt Sections: Explore new "Latest Releases" and "Top 4K" sections.
+- Featured Movies/Shows Carousel: A new slideshow of new and popular movies or shows is now on the Discover page.
+- Quality Indicators: See the video quality (HD or CAM) on the Details Modal or Featured Carousel.
+- Expanded Descriptions: Episode descriptions can now be expanded.
+- Watchparty (Beta)! Easily invite anyone to watch with you. Now joinable from the home page.
+- You can now click on actors and directors on a movie or show's detail page to explore their other work.
+
+Improvements
+- (Most) User preferences now sync.
+- UI &amp; UX Refresh: New player settings design and an overhauled Details Modal.
+- You can now toggle Carousel View to show "Currently Watching" and "Bookmarked" lists as carousels.
+
+Bug Fixes
+- Fixed several issues with loading skeletons.
+- Implemented a fix to better handle subtitle files.
+- Fixed various layout issues.
+- Febbox Token now actually syncs with your account.
+- Many other bugs.</description>
+      <pubDate>Fri, 06 Jun 2025 11:29:00 GMT</pubDate>
+      <category>update</category>
+    </item>
+
+  </channel>
+</rss> 
