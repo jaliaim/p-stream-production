@@ -7,13 +7,13 @@ window.__CONFIG__ = {
   VITE_TMDB_READ_API_KEY: "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzhlYzIxMGYyMTdmN2YxZDAyYTQ5NWRjYmRhMDdlNCIsIm5iZiI6MTcxOTExODQ1Mi43MDEsInN1YiI6IjY2NzdhYTc0YTJhZjI4M2NlZGYyNGJiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xmBWPN3xMi2fmjbNVZ20mVUnpyz2d8u0U1e9pvhUIY8",
 
   // The DMCA email displayed in the footer, null to hide the DMCA link
-  VITE_DMCA_EMAIL: null,
+  VITE_DMCA_EMAIL: "dmca@larp.pw",
 
   // Whether to disable hash-based routing, leave this as false if you don't know what this is
   VITE_NORMAL_ROUTER: true,
 
   // The backend URL to communicate with
-  VITE_BACKEND_URL: "server.fifthwit.net",
+  VITE_BACKEND_URL: "backend.lordflix.club",
 
   // A comma separated list of disallowed IDs in the case of a DMCA claim - in the format "series-<id>" and "movie-<id>"
   VITE_DISALLOWED_IDS: ""
