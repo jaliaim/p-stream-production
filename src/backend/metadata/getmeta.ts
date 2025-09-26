@@ -96,7 +96,8 @@ export async function getMetaFromId(
     const seasons = showDetails.seasons;
 
     let selectedSeason = seasons.find((v) => v.id.toString() === seasonId);
-    if (!selectedSeason) selectedSeason = seasons.find((v) => v.season_number === 1);
+    if (!selectedSeason)
+      selectedSeason = seasons.find((v) => v.season_number === 1);
 
     if (selectedSeason) {
       // If episodes were pre-populated (e.g., Money Heist episode group override),

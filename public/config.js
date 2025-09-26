@@ -4,7 +4,8 @@ window.__CONFIG__ = {
   VITE_CORS_PROXY_URL: "https://proxy.lordflix.club",
   VITE_M3U8_PROXY_URL: "https://proxy.lordflix.club",
   // The READ API key to access TMDB
-  VITE_TMDB_READ_API_KEY: "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzhlYzIxMGYyMTdmN2YxZDAyYTQ5NWRjYmRhMDdlNCIsIm5iZiI6MTcxOTExODQ1Mi43MDEsInN1YiI6IjY2NzdhYTc0YTJhZjI4M2NlZGYyNGJiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xmBWPN3xMi2fmjbNVZ20mVUnpyz2d8u0U1e9pvhUIY8",
+  VITE_TMDB_READ_API_KEY:
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzhlYzIxMGYyMTdmN2YxZDAyYTQ5NWRjYmRhMDdlNCIsIm5iZiI6MTcxOTExODQ1Mi43MDEsInN1YiI6IjY2NzdhYTc0YTJhZjI4M2NlZGYyNGJiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xmBWPN3xMi2fmjbNVZ20mVUnpyz2d8u0U1e9pvhUIY8",
 
   // The DMCA email displayed in the footer, null to hide the DMCA link
   VITE_DMCA_EMAIL: "dmca@larp.pw",
@@ -16,5 +17,5 @@ window.__CONFIG__ = {
   VITE_BACKEND_URL: "backend.lordflix.club",
 
   // A comma separated list of disallowed IDs in the case of a DMCA claim - in the format "series-<id>" and "movie-<id>"
-  VITE_DISALLOWED_IDS: ""
+  VITE_DISALLOWED_IDS: "",
 };

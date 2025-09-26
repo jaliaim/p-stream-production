@@ -2,14 +2,14 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { get } from "@/backend/metadata/tmdb";
-import { conf } from "@/setup/config";
-import { useLanguageStore } from "@/stores/language";
-import { getTmdbLanguageCode } from "@/utils/language";
-import { useDiscoverOptions } from "@/pages/discover/hooks/useDiscoverMedia";
+import { Dropdown, OptionItem } from "@/components/form/Dropdown";
 import { WideContainer } from "@/components/layout/WideContainer";
 import { MediaCard } from "@/components/media/MediaCard";
 import { MediaGrid } from "@/components/media/MediaGrid";
-import { Dropdown, OptionItem } from "@/components/form/Dropdown";
+import { useDiscoverOptions } from "@/pages/discover/hooks/useDiscoverMedia";
+import { conf } from "@/setup/config";
+import { useLanguageStore } from "@/stores/language";
+import { getTmdbLanguageCode } from "@/utils/language";
 import { MediaItem } from "@/utils/mediaTypes";
 
 interface FiltersTabProps {
@@ -106,7 +106,10 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
   const yearOptions: OptionItem[] = useMemo(() => {
     const current = new Date().getFullYear();
     const years: OptionItem[] = [
-      { id: "", name: t("discover.filters.anyYear", { defaultValue: "Any Year" }) },
+      {
+        id: "",
+        name: t("discover.filters.anyYear", { defaultValue: "Any Year" }),
+      },
     ];
     for (let y = current; y >= 1950; y -= 1)
       years.push({ id: String(y), name: String(y) });
@@ -115,7 +118,10 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
 
   const genreOptions: OptionItem[] = useMemo(
     () => [
-      { id: "", name: t("discover.filters.anyGenre", { defaultValue: "Any Genre" }) },
+      {
+        id: "",
+        name: t("discover.filters.anyGenre", { defaultValue: "Any Genre" }),
+      },
       ...genres.map((g) => ({ id: String(g.id), name: g.name })),
     ],
     [genres, t],
@@ -125,7 +131,9 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
     () => [
       {
         id: "",
-        name: t("discover.filters.anyProvider", { defaultValue: "Any Provider" }),
+        name: t("discover.filters.anyProvider", {
+          defaultValue: "Any Provider",
+        }),
       },
       ...providers.map((p) => ({ id: p.id, name: p.name })),
     ],
@@ -148,7 +156,10 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
 
   const ratingOptions: OptionItem[] = useMemo(
     () => [
-      { id: "", name: t("discover.filters.anyRating", { defaultValue: "Any Rating" }) },
+      {
+        id: "",
+        name: t("discover.filters.anyRating", { defaultValue: "Any Rating" }),
+      },
       { id: "9", name: "9+" },
       { id: "8", name: "8+" },
       { id: "7", name: "7+" },
@@ -212,15 +223,16 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
           poster: r.poster_path
             ? `https://image.tmdb.org/t/p/w342/${r.poster_path}`
             : undefined,
-          year:
-            (selectedMediaType === "movie" ? r.release_date : r.first_air_date)
-              ? Number(
-                  (selectedMediaType === "movie"
-                    ? r.release_date
-                    : r.first_air_date
-                  ).slice(0, 4),
-                )
-              : 0,
+          year: (
+            selectedMediaType === "movie" ? r.release_date : r.first_air_date
+          )
+            ? Number(
+                (selectedMediaType === "movie"
+                  ? r.release_date
+                  : r.first_air_date
+                ).slice(0, 4),
+              )
+            : 0,
           release_date: (selectedMediaType === "movie"
             ? r.release_date
               ? new Date(r.release_date)
@@ -345,5 +357,3 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
     </WideContainer>
   );
 }
-
-

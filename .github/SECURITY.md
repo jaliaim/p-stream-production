@@ -7,4 +7,5 @@ The latest version of sudo-flix is the only version that is supported, as it is 
 ## Reporting a Vulnerability
 
 You can contact the sudo-flix maintainers to report a vulnerability:
- - Report the vulnerability in the [Discord](https://docs.pstream.mov/links/discord).
+
+- Report the vulnerability in the [Discord](https://docs.pstream.mov/links/discord).

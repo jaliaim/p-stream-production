@@ -36,4 +36,4 @@ export const allThemes = [
   hulk,
   wolverine,
   popsicle,
-]
+];

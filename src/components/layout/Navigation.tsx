@@ -184,7 +184,6 @@ export function Navigation(props: NavigationProps) {
                     />
                   </a>
                 ))}
-              
             </div>
             <div className="relative pointer-events-auto">
               <LinksDropdown>
