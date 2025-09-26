@@ -1,15 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Dropdown, OptionItem } from "@/components/form/Dropdown";
-import { MediaGrid } from "@/components/media/MediaGrid";
-import { MediaCard } from "@/components/media/MediaCard";
-import { WideContainer } from "@/components/layout/WideContainer";
-import { useDiscoverOptions } from "@/pages/discover/hooks/useDiscoverMedia";
 import { get } from "@/backend/metadata/tmdb";
 import { conf } from "@/setup/config";
 import { useLanguageStore } from "@/stores/language";
 import { getTmdbLanguageCode } from "@/utils/language";
+import { useDiscoverOptions } from "@/pages/discover/hooks/useDiscoverMedia";
+import { WideContainer } from "@/components/layout/WideContainer";
+import { MediaCard } from "@/components/media/MediaCard";
+import { MediaGrid } from "@/components/media/MediaGrid";
+import { Dropdown, OptionItem } from "@/components/form/Dropdown";
 import { MediaItem } from "@/utils/mediaTypes";
 
 interface FiltersTabProps {
@@ -29,16 +29,53 @@ interface TMDBDiscoverResult {
   total_pages: number;
 }
 
+const SKELETON_KEYS: string[] = [
+  "sk-a",
+  "sk-b",
+  "sk-c",
+  "sk-d",
+  "sk-e",
+  "sk-f",
+  "sk-g",
+  "sk-h",
+  "sk-i",
+  "sk-j",
+  "sk-k",
+  "sk-l",
+];
+
 export function FiltersTab({ onShowDetails }: FiltersTabProps) {
   const { t } = useTranslation();
 
   // State
-  const [mediaType, setMediaType] = useState<OptionItem>({ id: "movie", name: t("discover.filters.mediaType.movie", { defaultValue: "Movies" }) });
-  const [year, setYear] = useState<OptionItem>({ id: "", name: t("discover.filters.anyYear", { defaultValue: "Any Year" }) });
-  const [genre, setGenre] = useState<OptionItem>({ id: "", name: t("discover.filters.anyGenre", { defaultValue: "Any Genre" }) });
-  const [provider, setProvider] = useState<OptionItem>({ id: "", name: t("discover.filters.anyProvider", { defaultValue: "Any Provider" }) });
-  const [country, setCountry] = useState<OptionItem>({ id: "US", name: t("discover.filters.countryDefault", { defaultValue: "United States" }) });
-  const [rating, setRating] = useState<OptionItem>({ id: "", name: t("discover.filters.anyRating", { defaultValue: "Any Rating" }) });
+  const [mediaType, setMediaType] = useState<OptionItem>({
+    id: "movie",
+    name: t("discover.filters.mediaType.movie", { defaultValue: "Movies" }),
+  });
+  const [year, setYear] = useState<OptionItem>({
+    id: "",
+    name: t("discover.filters.anyYear", { defaultValue: "Any Year" }),
+  });
+  const [genre, setGenre] = useState<OptionItem>({
+    id: "",
+    name: t("discover.filters.anyGenre", { defaultValue: "Any Genre" }),
+  });
+  const [provider, setProvider] = useState<OptionItem>({
+    id: "",
+    name: t("discover.filters.anyProvider", {
+      defaultValue: "Any Provider",
+    }),
+  });
+  const [country, setCountry] = useState<OptionItem>({
+    id: "US",
+    name: t("discover.filters.countryDefault", {
+      defaultValue: "United States",
+    }),
+  });
+  const [rating, setRating] = useState<OptionItem>({
+    id: "",
+    name: t("discover.filters.anyRating", { defaultValue: "Any Rating" }),
+  });
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -49,31 +86,49 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
   const formattedLanguage = getTmdbLanguageCode(userLanguage);
 
   // Options sourced from TMDB and static lists
-  const selectedMediaType = (mediaType.id as "movie" | "tv");
+  const selectedMediaType = mediaType.id as "movie" | "tv";
   const { providers, genres } = useDiscoverOptions(selectedMediaType);
 
   const mediaTypeOptions: OptionItem[] = useMemo(
     () => [
-      { id: "movie", name: t("discover.filters.mediaType.movie", { defaultValue: "Movies" }) },
-      { id: "tv", name: t("discover.filters.mediaType.tv", { defaultValue: "TV Shows" }) },
+      {
+        id: "movie",
+        name: t("discover.filters.mediaType.movie", { defaultValue: "Movies" }),
+      },
+      {
+        id: "tv",
+        name: t("discover.filters.mediaType.tv", { defaultValue: "TV Shows" }),
+      },
     ],
     [t],
   );
 
   const yearOptions: OptionItem[] = useMemo(() => {
     const current = new Date().getFullYear();
-    const years: OptionItem[] = [{ id: "", name: t("discover.filters.anyYear", { defaultValue: "Any Year" }) }];
-    for (let y = current; y >= 1950; y -= 1) years.push({ id: String(y), name: String(y) });
+    const years: OptionItem[] = [
+      { id: "", name: t("discover.filters.anyYear", { defaultValue: "Any Year" }) },
+    ];
+    for (let y = current; y >= 1950; y -= 1)
+      years.push({ id: String(y), name: String(y) });
     return years;
   }, [t]);
 
   const genreOptions: OptionItem[] = useMemo(
-    () => [{ id: "", name: t("discover.filters.anyGenre", { defaultValue: "Any Genre" }) }, ...genres.map((g) => ({ id: String(g.id), name: g.name }))],
+    () => [
+      { id: "", name: t("discover.filters.anyGenre", { defaultValue: "Any Genre" }) },
+      ...genres.map((g) => ({ id: String(g.id), name: g.name })),
+    ],
     [genres, t],
   );
 
   const providerOptions: OptionItem[] = useMemo(
-    () => [{ id: "", name: t("discover.filters.anyProvider", { defaultValue: "Any Provider" }) }, ...providers.map((p) => ({ id: p.id, name: p.name }))],
+    () => [
+      {
+        id: "",
+        name: t("discover.filters.anyProvider", { defaultValue: "Any Provider" }),
+      },
+      ...providers.map((p) => ({ id: p.id, name: p.name })),
+    ],
     [providers, t],
   );
 
@@ -103,7 +158,10 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
   );
 
   // Build TMDB discover endpoint and params
-  const endpoint = useMemo(() => (selectedMediaType === "movie" ? "/discover/movie" : "/discover/tv"), [selectedMediaType]);
+  const endpoint = useMemo(
+    () => (selectedMediaType === "movie" ? "/discover/movie" : "/discover/tv"),
+    [selectedMediaType],
+  );
 
   const params = useMemo(() => {
     const p: Record<string, any> = {
@@ -127,7 +185,16 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
     if (rating.id) p["vote_average.gte"] = rating.id;
 
     return p;
-  }, [genre.id, provider.id, country.id, year.id, rating.id, page, selectedMediaType, formattedLanguage]);
+  }, [
+    genre.id,
+    provider.id,
+    country.id,
+    year.id,
+    rating.id,
+    page,
+    selectedMediaType,
+    formattedLanguage,
+  ]);
 
   // Fetch data
   useEffect(() => {
@@ -142,9 +209,25 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
           id: String(r.id),
           title: selectedMediaType === "movie" ? r.title || "" : r.name || "",
           type: selectedMediaType === "movie" ? "movie" : "show",
-          poster: r.poster_path ? `https://image.tmdb.org/t/p/w342/${r.poster_path}` : undefined,
-          year: (selectedMediaType === "movie" ? r.release_date : r.first_air_date) ? Number((selectedMediaType === "movie" ? r.release_date : r.first_air_date).slice(0, 4)) : 0,
-          release_date: (selectedMediaType === "movie" ? (r.release_date ? new Date(r.release_date) : undefined) : (r.first_air_date ? new Date(r.first_air_date) : undefined)) as any,
+          poster: r.poster_path
+            ? `https://image.tmdb.org/t/p/w342/${r.poster_path}`
+            : undefined,
+          year:
+            (selectedMediaType === "movie" ? r.release_date : r.first_air_date)
+              ? Number(
+                  (selectedMediaType === "movie"
+                    ? r.release_date
+                    : r.first_air_date
+                  ).slice(0, 4),
+                )
+              : 0,
+          release_date: (selectedMediaType === "movie"
+            ? r.release_date
+              ? new Date(r.release_date)
+              : undefined
+            : r.first_air_date
+              ? new Date(r.first_air_date)
+              : undefined) as any,
         }));
         setItems((prev) => (page === 1 ? mapped : [...prev, ...mapped]));
         setHasMore(page < (data.total_pages || 1));
@@ -191,18 +274,57 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
   return (
     <WideContainer ultraWide>
       <div className="flex flex-wrap justify-center gap-2 items-center mb-6">
-        <Dropdown hideChevron buttonClassName="py-2 pl-3 pr-6" selectedItem={mediaType} setSelectedItem={setMediaType} options={mediaTypeOptions} />
-        <Dropdown hideChevron buttonClassName="py-2 pl-3 pr-6" selectedItem={year} setSelectedItem={setYear} options={yearOptions} />
-        <Dropdown hideChevron buttonClassName="py-2 pl-3 pr-6" selectedItem={genre} setSelectedItem={setGenre} options={genreOptions} />
-        <Dropdown hideChevron buttonClassName="py-2 pl-3 pr-6" selectedItem={rating} setSelectedItem={setRating} options={ratingOptions} />
-        <Dropdown hideChevron buttonClassName="py-2 pl-3 pr-6" selectedItem={provider} setSelectedItem={setProvider} options={providerOptions} />
-        <Dropdown hideChevron buttonClassName="py-2 pl-3 pr-6" selectedItem={country} setSelectedItem={setCountry} options={countryOptions} />
+        <Dropdown
+          hideChevron
+          buttonClassName="py-2 pl-3 pr-6"
+          selectedItem={mediaType}
+          setSelectedItem={setMediaType}
+          options={mediaTypeOptions}
+        />
+        <Dropdown
+          hideChevron
+          buttonClassName="py-2 pl-3 pr-6"
+          selectedItem={year}
+          setSelectedItem={setYear}
+          options={yearOptions}
+        />
+        <Dropdown
+          hideChevron
+          buttonClassName="py-2 pl-3 pr-6"
+          selectedItem={genre}
+          setSelectedItem={setGenre}
+          options={genreOptions}
+        />
+        <Dropdown
+          hideChevron
+          buttonClassName="py-2 pl-3 pr-6"
+          selectedItem={rating}
+          setSelectedItem={setRating}
+          options={ratingOptions}
+        />
+        <Dropdown
+          hideChevron
+          buttonClassName="py-2 pl-3 pr-6"
+          selectedItem={provider}
+          setSelectedItem={setProvider}
+          options={providerOptions}
+        />
+        <Dropdown
+          hideChevron
+          buttonClassName="py-2 pl-3 pr-6"
+          selectedItem={country}
+          setSelectedItem={setCountry}
+          options={countryOptions}
+        />
       </div>
 
       <MediaGrid>
         {isLoading && items.length === 0
-          ? Array.from({ length: 12 }).map((_, idx) => (
-              <div key={`sk-${idx}`} className="relative mt-4 group rounded-xl p-2 bg-transparent w-[10rem] md:w-[11.5rem] h-auto">
+          ? SKELETON_KEYS.map((k) => (
+              <div
+                key={k}
+                className="relative mt-4 group rounded-xl p-2 bg-transparent w-[10rem] md:w-[11.5rem] h-auto"
+              >
                 <div className="animate-pulse">
                   <div className="w-full aspect-[2/3] bg-mediaCard-hoverBackground rounded-lg" />
                   <div className="mt-2 h-4 bg-mediaCard-hoverBackground rounded w-3/4" />
@@ -210,7 +332,12 @@ export function FiltersTab({ onShowDetails }: FiltersTabProps) {
               </div>
             ))
           : items.map((m) => (
-              <MediaCard key={`${m.type}-${m.id}`} media={m} linkable onShowDetails={onShowDetails} />
+              <MediaCard
+                key={`${m.type}-${m.id}`}
+                media={m}
+                linkable
+                onShowDetails={onShowDetails}
+              />
             ))}
       </MediaGrid>
 
