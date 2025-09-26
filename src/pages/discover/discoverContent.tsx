@@ -13,6 +13,7 @@ import { MediaItem } from "@/utils/mediaTypes";
 
 import { DiscoverNavigation } from "./components/DiscoverNavigation";
 import type { FeaturedMedia } from "./components/FeaturedCarousel";
+import { FiltersTab } from "./components/FiltersTab";
 import { LazyTabContent } from "./components/LazyTabContent";
 import { MediaCarousel } from "./components/MediaCarousel";
 import { ScrollToTopButton } from "./components/ScrollToTopButton";
@@ -28,10 +29,10 @@ export function DiscoverContent() {
   // Only load data for the active tab
   const isMoviesTab = selectedCategory === "movies";
   const isTVShowsTab = selectedCategory === "tvshows";
-  const isEditorPicksTab = selectedCategory === "editorpicks";
+  const isFiltersTab = selectedCategory === "filters";
 
   const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category as "movies" | "tvshows" | "editorpicks");
+    setSelectedCategory(category as "movies" | "tvshows" | "filters");
   };
 
   const handleShowDetails = async (media: MediaItem | FeaturedMedia) => {
@@ -181,24 +182,12 @@ export function DiscoverContent() {
     );
   };
 
-  // Render Editor Picks content
-  const renderEditorPicksContent = () => {
+  // Render Filters content
+  const renderFiltersContent = () => {
     return (
       <>
-        <MediaCarousel
-          content={{ type: "editorPicks" }}
-          isTVShow={false}
-          carouselRefs={carouselRefs}
-          onShowDetails={handleShowDetails}
-          moreContent
-        />
-        <MediaCarousel
-          content={{ type: "editorPicks" }}
-          isTVShow
-          carouselRefs={carouselRefs}
-          onShowDetails={handleShowDetails}
-          moreContent
-        />
+        {/* Filters Tab */}
+        <FiltersTab onShowDetails={handleShowDetails} />
       </>
     );
   };
@@ -221,9 +210,9 @@ export function DiscoverContent() {
           {renderTVShowsContent()}
         </LazyTabContent>
 
-        {/* Editor Picks Tab */}
-        <LazyTabContent isActive={isEditorPicksTab}>
-          {renderEditorPicksContent()}
+        {/* Filters Tab */}
+        <LazyTabContent isActive={isFiltersTab}>
+          {renderFiltersContent()}
         </LazyTabContent>
       </WideContainer>
 

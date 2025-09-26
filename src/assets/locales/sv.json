@@ -1,14 +1,14 @@
 {
     "about": {
-        "description": "P-Stream är en vidareutveckling (”fork”) av Movie-Web som är garanterad att fortsätta fungera även efter att movie-web.app stängts ner. P-Stream körs på en privat, egenhostad VPS. Jag driver den här sidan med förlust; det finns väldigt lite reklam eftersom jag tror på fri tillgång till media.",
+        "description": "Lordflix är en vidareutveckling (”fork”) av Movie-Web som är garanterad att fortsätta fungera även efter att movie-web.app stängts ner. Lordflix körs på en privat, egenhostad VPS. Jag driver den här sidan med förlust; det finns väldigt lite reklam eftersom jag tror på fri tillgång till media.",
         "faqTitle": "Vanliga frågor",
         "q1": {
-            "body": "P-Stream hostar ingen innehåll. När du klickar på något att titta på, söks internet efter det valda mediet (På laddningsskärmen och i fliken 'Videokällor' kan du se vilken källa du använder). Media laddas aldrig upp av P-Stream, allt sker genom sökmotorn.",
+            "body": "Lordflix hostar ingen innehåll. När du klickar på något att titta på, söks internet efter det valda mediet (På laddningsskärmen och i fliken 'Videokällor' kan du se vilken källa du använder). Media laddas aldrig upp av Lordflix, allt sker genom sökmotorn.",
             "title": "Var kommer innehållet ifrån?",
             "section": "allmänt"
         },
         "q2": {
-            "body": "Det går inte att begära en show eller film, P-Stream hanterar inte något innehåll. Allt innehåll visas genom källor på internet.",
+            "body": "Det går inte att begära en show eller film, Lordflix hanterar inte något innehåll. Allt innehåll visas genom källor på internet.",
             "title": "Var kan jag begära en serie eller film?",
             "section": "sök"
         },
@@ -17,11 +17,11 @@
             "title": "Sökresultaten visar showen eller filmen, varför kan jag inte spela upp den?",
             "section": "sök"
         },
-        "title": "Om P-Stream",
+        "title": "Om Lordflix",
         "help": "Hittar du inget svar? <0>Få support här.</0>",
         "q6": {
             "body": "Inte än, men du kan installera den som en PWA (Progressive Web App). På iOS, gå in på Safari → Dela → Lägg till på startskärmen. På Android, gå in på Chrome → 3 punkter → Lägg till på startskärmen. En experimentell APK finns tillgänglig via vår Discord, men den rekommenderas inte.",
-            "title": "Finns det en P-stream-app?",
+            "title": "Finns det en Lordflix-app?",
             "section": "allmänt"
         },
         "sections": {
@@ -54,7 +54,7 @@
         },
         "q5": {
             "title": "Hur kan jag få veta mer?",
-            "body": "P-Stream har en Discord-server som kan hittas högst upp på sidan!",
+            "body": "Lordflix har en Discord-server som kan hittas högst upp på sidan!",
             "section": "allmänt"
         },
         "q7": {
@@ -212,7 +212,7 @@
     "footer": {
         "legal": {
             "disclaimer": "Friskriver sig från ansvar",
-            "disclaimerText": "P-Stream hostar inga filer utan länkar endast till filer från tredje part. Eventuella juridiska frågor bör tas upp med källorna till materialet. P-Stream varken ansvarar eller styr över de mediefiler som visas."
+            "disclaimerText": "Lordflix hostar inga filer utan länkar endast till filer från tredje part. Eventuella juridiska frågor bör tas upp med källorna till materialet. Lordflix varken ansvarar eller styr över de mediefiler som visas."
         },
         "links": {
             "discord": "Discord",
@@ -224,12 +224,12 @@
         "tagline": "Titta på dina favoritprogram och filmer helt gratis."
     },
     "global": {
-        "name": "P-Stream",
+        "name": "Lordflix",
         "pages": {
             "about": "Om oss",
             "legal": "Legal / DMCA",
             "login": "Logga in",
-            "pagetitle": "{{title}} - P-Stream",
+            "pagetitle": "{{title}} - Lordflix",
             "register": "Registrera",
             "settings": "Inställningar",
             "discover": "Upptäck",
@@ -278,11 +278,11 @@
                     "Vad har du lust med?",
                     "Ska vi radera din webbläsarhistorik?",
                     "Vad vill du streama?",
-                    "P-Stream är den bästa sidan någonsin!",
+                    "Lordflix är den bästa sidan någonsin!",
                     "Vad är på din titta-lista idag?",
                     "Hur var din dag?",
                     "Ingen fara, sidan fungerar tydligen aldrig…",
-                    "Är inte P-Stream bara det bästa?",
+                    "Är inte Lordflix bara det bästa?",
                     ">ᴗ<"
                 ]
             },
@@ -303,7 +303,7 @@
             "day": {
                 "default": "Vad vill du titta på i eftermiddag?",
                 "extra": [
-                    "Viva la P-Stream!"
+                    "Viva la Lordflix!"
                 ]
             },
             "morning": {
@@ -383,7 +383,7 @@
         },
         "menus": {
             "downloads": {
-                "disclaimer": "Nedladdningar görs direkt från leverantören. P-Stream har ingen kontroll över hur nedladdningarna tillhandahålls.",
+                "disclaimer": "Nedladdningar görs direkt från leverantören. Lordflix har ingen kontroll över hur nedladdningarna tillhandahålls.",
                 "downloadVideo": "Ladda ner video",
                 "onAndroid": {
                     "1": "För att ladda ner på Android, klicka på nedladdningsknappen och på den nya sidan <bold>trycker och håller</bold> på videon, välj sedan <bold>spara</bold>.",
@@ -406,7 +406,7 @@
                 "iina": "IINA",
                 "outplayer": "Outplayer",
                 "hlsOpenInDisclaimer": "Att öppna HLS-strömmar i en extern spelare KANSKE INTE FUNGERAR!",
-                "hlsDisclaimer": "Nedladdningar hämtas direkt från leverantören. P-Stream har ingen kontroll över hur nedladdningarna tillhandahålls.<br /><br />Observera att du laddar ner en HLS-spellista, <bold>det rekommenderas inte att ladda ner om du inte är bekant med avancerade strömningsformat</bold>. Prova olika källor för olika format.",
+                "hlsDisclaimer": "Nedladdningar hämtas direkt från leverantören. Lordflix har ingen kontroll över hur nedladdningarna tillhandahålls.<br /><br />Observera att du laddar ner en HLS-spellista, <bold>det rekommenderas inte att ladda ner om du inte är bekant med avancerade strömningsformat</bold>. Prova olika källor för olika format.",
                 "button": "Försök nedladdning",
                 "hlsDownloader": "Eller gå till <0>hls downloader website</0> och klistra in spelliste-URL\\:en från nedan.",
                 "copyHlsPlaylist": "Kopiera länk till HLS spellista",
@@ -568,7 +568,7 @@
             "extensionFailure": {
                 "enableExtension": "Aktivera tillägget",
                 "title": "Vänligen aktivera tillägget",
-                "text": "Du har installerat P-Stream-tillägget. För att börja använda det måste du aktivera tillägget för denna webbplats.",
+                "text": "Du har installerat Lordflix-tillägget. För att börja använda det måste du aktivera tillägget för denna webbplats.",
                 "badge": "Tillägget inaktiverat",
                 "homeButton": "Gå till startsidan"
             },
@@ -609,7 +609,7 @@
             "restart": "Starta om"
         },
         "turnstile": {
-            "description": "Vänligen bevisa att din mänsklighet genom att genomföra den snabba utmaningen; detta görs för att hålla P-Stream säkert."
+            "description": "Vänligen bevisa att din mänsklighet genom att genomföra den snabba utmaningen; detta görs för att hålla Lordflix säkert."
         }
     },
     "screens": {
@@ -883,11 +883,11 @@
                         "fedapi": "Valfritt: Febbox token",
                         "fedapiDescription": "Ta med ditt eget GRATIS Febbox-konto för att få tillgång till FED API och CIA API, de bästa källorna med 4K-kvalitet, Dolby Atmos, hoppa över intro och snabbast laddningstider! Mycket rekommenderat alternativ!"
                     },
-                    "outro": "Om du har fler frågor om hur det här fungerar, fråga gärna på <0>P-Stream Discord</0> servern!",
+                    "outro": "Om du har fler frågor om hur det här fungerar, fråga gärna på <0>Lordflix Discord</0> servern!",
                     "proxy": "2. Proxy",
                     "default": "3. Standard Setup",
-                    "defaultDescription": "Använder P-Streams inbyggda proxy. Det är det enklaste alternativet men kan vara långsammare på grund av delad bandbredd.",
-                    "intro": "P-Stream är inte en värd för videor. Den är beroende av tredjepartswebbplatser för innehåll, så du måste välja hur den ska ansluta till dessa webbplatser."
+                    "defaultDescription": "Använder Lordflixs inbyggda proxy. Det är det enklaste alternativet men kan vara långsammare på grund av delad bandbredd.",
+                    "intro": "Lordflix är inte en värd för videor. Den är beroende av tredjepartswebbplatser för innehåll, så du måste välja hur den ska ansluta till dessa webbplatser."
                 },
                 "recommended": {
                     "title": "Osäker om vad du ska välja?",
@@ -924,14 +924,14 @@
                     "title": "Anpassad proxy"
                 }
             },
-            "title": "Låt oss sätta upp P-Stream för dig 🥳",
+            "title": "Låt oss sätta upp Lordflix för dig 🥳",
             "explainer": "För att få de bästa möjliga strömmarna måste du välja vilken strömningsmetod du vill använda."
         }
     },
     "downtimeNotice": {
         "badge": "Problem",
         "goHome": "Gå hem",
-        "message": "P-Stream upplever återigen problem med vissa leverantörer. Om du inte kan hitta eller spela upp ett program, byt källa. Förvänta dig att detta fel kvarstår under de tider som anges nedan.",
+        "message": "Lordflix upplever återigen problem med vissa leverantörer. Om du inte kan hitta eller spela upp ett program, byt källa. Förvänta dig att detta fel kvarstår under de tider som anges nedan.",
         "title": "Leverantörs-problem"
     },
     "discover": {

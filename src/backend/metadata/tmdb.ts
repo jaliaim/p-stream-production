@@ -318,7 +318,51 @@ export async function getMediaDetails<
       append_to_response: "external_ids,credits,content_ratings",
     });
 
-    // Fetch episodes for each season
+    // Money Heist (La Casa de Papel) override: use Netflix Parts episode group
+    // TMDB tv id: 71446, Episode Group id: 5eb730dfca7ec6001f7beb51
+    if (id === "71446") {
+      try {
+        const group: any = await get<any>(
+          `/tv/episode_group/5eb730dfca7ec6001f7beb51`,
+        );
+        const groups: any[] = group?.groups || [];
+        const partsAsSeasons = groups.map((g: any, idx: number) => ({
+          id: idx + 1,
+          season_number: idx + 1,
+          name: g.name || `Part ${idx + 1}`,
+          episode_count: (g.episodes || []).length,
+          overview: g.overview || "",
+          air_date: "",
+          poster_path: null,
+        }));
+
+        const groupEpisodes = groups.flatMap((g: any, idx: number) =>
+          (g.episodes || []).map((e: any, epIdx: number) => ({
+            id: e.episode?.id ?? e.id,
+            name: e.episode?.name ?? e.name ?? "",
+            episode_number: epIdx + 1,
+            overview: e.episode?.overview ?? e.overview ?? "",
+            still_path: e.episode?.still_path ?? e.still_path ?? null,
+            air_date: e.episode?.air_date ?? e.air_date ?? "",
+            season_number: idx + 1,
+            vote_average: e.episode?.vote_average ?? e.vote_average ?? 0,
+            vote_count: e.episode?.vote_count ?? e.vote_count ?? 0,
+          })),
+        );
+
+        return {
+          ...(showData as any),
+          seasons: partsAsSeasons,
+          episodes: groupEpisodes,
+        } as TReturn;
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.warn("Failed to fetch Money Heist episode group", err);
+        // fall through to default behavior
+      }
+    }
+
+    // Default: fetch episodes per season
     const showDetails = showData as TMDBShowData;
     const episodePromises = showDetails.seasons.map(async (season) => {
       const seasonData = await get<TMDBSeason>(
@@ -343,6 +387,11 @@ export async function getMediaDetails<
     } as TReturn;
   }
   throw new Error("Invalid media type");
+}
+
+// Optional helper to fetch a TV episode group
+export async function getEpisodeGroup(groupId: string): Promise<any> {
+  return get<any>(`/tv/episode_group/${groupId}`);
 }
 
 export function getMediaBackdrop(

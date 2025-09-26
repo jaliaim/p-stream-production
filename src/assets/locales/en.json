@@ -457,7 +457,7 @@
     "menu": {
       "about": "About and FAQ",
       "logout": "Log out",
-      "register": "Sync to Cloud",
+      "register": "Login",
       "settings": "Settings",
       "support": "Support",
       "discover": "Discover",
@@ -1079,7 +1079,7 @@
     "tabs": {
       "movies": "Movies",
       "tvshows": "TV Shows",
-      "editorpicks": "Editor Picks"
+      "filters": "Filters"
     },
     "carousel": {
       "title": {
@@ -1107,6 +1107,28 @@
       },
       "change": "Change",
       "more": "View more"
+    },
+    "filters": {
+      "mediaType": {
+        "movie": "Movies",
+        "tv": "TV Shows"
+      },
+      "anyYear": "Any Year",
+      "anyGenre": "Any Genre",
+      "anyProvider": "Any Provider",
+      "anyRating": "Any Rating",
+      "countryDefault": "United States",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "countries": {
+      "us": "United States",
+      "gb": "United Kingdom",
+      "ca": "Canada",
+      "au": "Australia",
+      "de": "Germany",
+      "fr": "France",
+      "in": "India"
     },
     "featured": {
       "playNow": "Play Now",

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type Category = "movies" | "tvshows" | "editorpicks";
+type Category = "movies" | "tvshows" | "filters";
 
 interface DiscoverView {
   url: string;

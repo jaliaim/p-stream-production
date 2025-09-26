@@ -91,7 +91,7 @@ function VideoElement() {
   if (captionAsTrack && trackObjectUrl && language)
     subtitleTrack = (
       <track
-        label="P-Stream Captions"
+        label="Lordflix Captions"
         kind="subtitles"
         srcLang={language}
         src={trackObjectUrl}

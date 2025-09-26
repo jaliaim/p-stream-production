@@ -82,25 +82,56 @@ export async function getMetaFromId(
   let seasonData: TMDBSeasonMetaResult | undefined;
 
   if (type === MWMediaType.SERIES) {
-    const seasons = (details as TMDBShowData).seasons;
+    const showDetails = details as TMDBShowData & {
+      episodes?: Array<{
+        id: number;
+        name: string;
+        overview: string;
+        episode_number: number;
+        season_number: number;
+        still_path: string | null;
+        air_date: string;
+      }>;
+    };
+    const seasons = showDetails.seasons;
 
     let selectedSeason = seasons.find((v) => v.id.toString() === seasonId);
-    if (!selectedSeason) {
-      selectedSeason = seasons.find((v) => v.season_number === 1);
-    }
+    if (!selectedSeason) selectedSeason = seasons.find((v) => v.season_number === 1);
 
     if (selectedSeason) {
-      const episodes = await getEpisodes(
-        details.id.toString(),
-        selectedSeason.season_number,
-      );
+      // If episodes were pre-populated (e.g., Money Heist episode group override),
+      // build seasonData from those instead of refetching per-season
+      if (showDetails.episodes && showDetails.episodes.length > 0) {
+        const epsForSeason = showDetails.episodes
+          .filter((e) => e.season_number === selectedSeason!.season_number)
+          .map((e) => ({
+            id: e.id,
+            episode_number: e.episode_number,
+            title: e.name,
+            air_date: e.air_date,
+            still_path: e.still_path,
+            overview: e.overview,
+          }));
 
-      seasonData = {
-        id: selectedSeason.id.toString(),
-        season_number: selectedSeason.season_number,
-        title: selectedSeason.name,
-        episodes,
-      };
+        seasonData = {
+          id: selectedSeason.id.toString(),
+          season_number: selectedSeason.season_number,
+          title: selectedSeason.name,
+          episodes: epsForSeason,
+        };
+      } else {
+        const episodes = await getEpisodes(
+          details.id.toString(),
+          selectedSeason.season_number,
+        );
+
+        seasonData = {
+          id: selectedSeason.id.toString(),
+          season_number: selectedSeason.season_number,
+          title: selectedSeason.name,
+          episodes,
+        };
+      }
     }
   }
 

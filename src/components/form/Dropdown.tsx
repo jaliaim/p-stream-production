@@ -20,6 +20,8 @@ interface DropdownProps {
   customMenu?: React.ReactNode;
   className?: string;
   preventWrap?: boolean;
+  hideChevron?: boolean;
+  buttonClassName?: string;
 }
 
 export function Dropdown(props: DropdownProps) {
@@ -33,19 +35,25 @@ export function Dropdown(props: DropdownProps) {
             {customButton ? (
               <Listbox.Button as={Fragment}>{customButton}</Listbox.Button>
             ) : (
-              <Listbox.Button className="relative z-[101] w-full rounded-lg bg-dropdown-background hover:bg-dropdown-hoverBackground py-3 pl-3 pr-10 text-left text-white shadow-md focus:outline-none tabbable cursor-pointer">
+              <Listbox.Button
+                className={`relative z-[101] w-full rounded-lg bg-dropdown-background hover:bg-dropdown-hoverBackground text-left text-white shadow-md focus:outline-none tabbable cursor-pointer ${
+                  props.buttonClassName || "py-3 pl-3 pr-10"
+                }`}
+              >
                 <span className="flex gap-4 items-center truncate">
                   {props.selectedItem.leftIcon
                     ? props.selectedItem.leftIcon
                     : null}
                   {props.selectedItem.name}
                 </span>
-                <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                  <Icon
-                    icon={Icons.UP_DOWN_ARROW}
-                    className={`transform transition-transform text-xl text-dropdown-secondary ${direction === "up" ? "rotate-180" : ""}`}
-                  />
-                </span>
+                {props.hideChevron ? null : (
+                  <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                    <Icon
+                      icon={Icons.UP_DOWN_ARROW}
+                      className={`transform transition-transform text-xl text-dropdown-secondary ${direction === "up" ? "rotate-180" : ""}`}
+                    />
+                  </span>
+                )}
               </Listbox.Button>
             )}
             <Transition

@@ -52,7 +52,7 @@ export const usePreferencesStore = create(
       enableSkipCredits: true,
       enableDiscover: true,
       enableFeatured: false,
-      enableDetailsModal: false,
+      enableDetailsModal: true,
       enableImageLogos: true,
       enableCarouselView: false,
       forceCompactEpisodeView: false,
